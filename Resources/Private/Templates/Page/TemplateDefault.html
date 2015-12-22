@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Visio - Responsive Website Template</title>
+
+    <f:section name="stylesheets">
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/assets/bootstrap/css/bootstrap.min.css', package: 'Neoslive.Visio')}"
+              type="text/css">
+
+        <!-- ANIMATE -->
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/assets/animate/animate.min.css', package: 'Neoslive.Visio')}"
+              type="text/css">
+
+        <!-- WEB FONTS -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+        <!-- ICON FONTS -->
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/fonts/font-awesome/css/font-awesome.min.css', package: 'Neoslive.Visio')}"
+              type="text/css">
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/fonts/ionicons/css/ionicons.min.css', package: 'Neoslive.Visio')}"
+              type="text/css">
+
+        <!-- GLOBAL STYLE -->
+        <link id="stylesheetGlobal" type="text/css"
+              href="{f:uri.resource(path: 'Styles/css/global-style-blue.css', package: 'Neoslive.Visio.Template')}"
+              rel="stylesheet" media="screen">
+
+
+        <!-- CUSTOM STYLE -->
+        <link type="text/css" href="{f:uri.resource(path: 'visio/css/custom-style.css', package: 'Neoslive.Visio')}"
+              rel="stylesheet">
+
+
+        <!-- ASSETS -->
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/assets/owl-carousel/css/owl.carousel.css', package: 'Neoslive.Visio')}"
+              type="text/css">
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/assets/owl-carousel/css/owl.theme.css', package: 'Neoslive.Visio')}"
+              type="text/css">
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/assets/fancybox/jquery.fancybox.css', package: 'Neoslive.Visio')}"
+              type="text/css" media="screen">
+        <link rel="stylesheet" href="{f:uri.resource(path: 'css/custom.css', package: 'Neoslive.Visio')}"
+              type="text/css" media="screen">
+
+        <!-- Cube Portfolio -->
+
+        <link rel="stylesheet"
+              href="{f:uri.resource(path: 'visio/assets/cubeportfolio/css/cubeportfolio.min.css', package: 'Neoslive.Visio')}"
+              type="text/css" media="screen">
+
+
+        <!-- FAVICON -->
+        <link href="{f:uri.resource(path: 'visio/images/favicon.png', package: 'Neoslive.Visio')}" rel="icon"
+              type="image/png">
+
+    </f:section>
+
+    <f:section name="headScripts">
+        <!-- Put your scripts inclusions for the head here, they will be included in your website by TypoScript -->
+        <!-- Required JSs -->
+        <script src="{f:uri.resource(path: 'visio/js/jquery.js', package: 'Neoslive.Visio')}"></script>
+        <script src="{f:uri.resource(path: 'visio/js/jquery-ui.min.js', package: 'Neoslive.Visio')}"></script>
+        <!-- Cube Portfolio -->
+        <script src="{f:uri.resource(path: 'visio/assets/cubeportfolio/js/jquery.cubeportfolio.min.js', package: 'Neoslive.Visio')}"></script>
+    </f:section>
+
+</head>
+
+<body>
+<f:section name="body">
+
+
+    <!-- MAIN WRAPPER -->
+    <div class="body-wrap {f:if(condition: '{boxed} == 1', then: 'body-boxed', else: '')}">
+
+        <div id="st-container" class="st-container">
+
+            <div class="st-pusher">
+                <div class="st-content">
+                    <div class="st-content-inner">
+                        <!-- HEADER -->
+                        <f:render partial="Header"
+                                  arguments="{node:node,mode:navigationheader,FullNavigation:FullNavigation,logo:content.logo}"/>
+                    </div>
+
+                    <!-- TITLE ROW -->
+
+                    <f:render partial="PageHeader"
+                              arguments="{node:node,title:node.properties.title,parts:parts,BreadcrumbNavigation:BreadcrumbNavigation,content:content}"/>
+
+
+                    <div class="content-wrapper-all">
+
+                        <div class="neos-main-wrapper slice">
+                            <f:render partial="Content" arguments="{node:node,content:content.main}"/>
+                        </div>
+
+                    </div>
+
+                    <!-- SECTION -->
+
+                    <!-- FOOTER -->
+                    <footer class="footer style-2">
+                        <div class="container">
+                            {content.footer -> f:format.raw()}
+                        </div>
+                    </footer>
+
+                    <div class="copyright style-1">
+                        <div class="container">
+                            {content.copyright -> f:format.raw()}
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: st-pusher -->
+    </div>
+    <!-- END: body-wrap -->
+
+</f:section>
+<f:section name="bodyScripts">
+    <!-- SCRIPTS -->
+
+
+
+    <!-- Essential JSs -->
+    <script src="{f:uri.resource(path: 'visio/assets/bootstrap/js/bootstrap.min.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/assets/bootstrap/js/tooltip.js', package: 'Neoslive.Visio')}"></script>
+
+    <f:if condition="{neos:rendering.inBackend()}">
+        <f:then>
+            <script src="{f:uri.resource(path: 'visio/js/bootstrap-extensions/bootstrap-dropdownhover.backend.js', package: 'Neoslive.Visio')}"></script>
+        </f:then>
+        <f:else>
+            <script src="{f:uri.resource(path: 'visio/js/bootstrap-extensions/bootstrap-dropdownhover.js', package: 'Neoslive.Visio')}"></script>
+        </f:else>
+    </f:if>
+
+
+    <script src="{f:uri.resource(path: 'visio/js/bootstrap-extensions/bootstrap.slide-menu.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/js/bootstrap-extensions/bootstrap-validator.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/js/modernizr.custom.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/js/jquery.mousewheel-3.0.6.pack.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/js/jquery.easing.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/js/classie.js', package: 'Neoslive.Visio')}"></script>
+
+    <!-- Assets - Required -->
+    <script src="{f:uri.resource(path: 'visio/assets/parallax/parallax.min.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/assets/page-scroller/jquery.ui.totop.min.js', package: 'Neoslive.Visio')}"></script>
+    <script src="{f:uri.resource(path: 'visio/assets/waypoints/waypoints.min.js', package: 'Neoslive.Visio')}"></script>
+
+
+    <f:if condition="{neos:rendering.inBackend()}">
+        <f:then>
+
+            <!-- Owl carousel - Touch enabled carousel -->
+            <script src="{f:uri.resource(path: 'visio/assets/owl-carousel/js/owl.carousel.backend.js', package: 'Neoslive.Visio')}"></script>
+
+
+        </f:then>
+        <f:else>
+            <!-- Assets - Optional (keep what you need) -->
+            <!-- Sidebar transitions -->
+            <script src="{f:uri.resource(path: 'visio/js/sidebar-transitions/sidebar-transitions.js', package: 'Neoslive.Visio')}"></script>
+            <script src="{f:uri.resource(path: 'visio/js/jquery.smoothscroll.js', package: 'Neoslive.Visio')}"></script>
+
+            <!-- Cross-browser responsivity scripts -->
+            <!--[if lt IE 9]>
+            <script src="{f:uri.resource(path: 'visio/js/html5shiv.js', package: 'Neoslive.Visio')}"></script>
+            <script src="{f:uri.resource(path: 'visio/js/respond.min.js', package: 'Neoslive.Visio')}"></script>
+            <![endif]-->
+
+            <!-- Owl carousel - Touch enabled carousel -->
+            <script src="{f:uri.resource(path: 'visio/assets/owl-carousel/js/owl.carousel.min.js', package: 'Neoslive.Visio')}"></script>
+
+
+        </f:else>
+    </f:if>
+
+    <!-- Media gallery view -->
+    <script src="{f:uri.resource(path: 'visio/assets/fancybox/jquery.fancybox.pack.js', package: 'Neoslive.Visio')}"></script>
+    <!-- Animated counter -->
+    <script src="{f:uri.resource(path: 'visio/assets/milestone-counter/jquery.countTo.js', package: 'Neoslive.Visio')}"></script>
+    <!-- Animated pie charts -->
+    <script src="{f:uri.resource(path: 'visio/assets/easy-pie-chart/js/jquery.easypiechart.js', package: 'Neoslive.Visio')}"></script>
+
+
+    <f:if condition="{neos:rendering.inBackend()}">
+        <f:then>
+            <!-- App JS -->
+            <script src="{f:uri.resource(path: 'visio/js/dvs.app.backend.js', package: 'Neoslive.Visio')}"></script>
+        </f:then>
+        <f:else>
+            <!-- App JS -->
+            <script src="{f:uri.resource(path: 'visio/js/dvs.app.js', package: 'Neoslive.Visio')}"></script>
+
+        </f:else>
+    </f:if>
+
+</f:section>
+</body>
+</html>

@@ -1,0 +1,6 @@
+prototype(TYPO3.TypoScript:Template) {
+
+  templatePath = ${'resource://Neoslive.Visio.Template/Private/Templates/Page/TemplateDefault.html'}
+
+}
+

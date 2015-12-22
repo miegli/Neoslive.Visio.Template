@@ -1,0 +1,11 @@
+/**
+ * Root TypoScript template for the Template site
+ */
+
+namespace: Site = Neoslive.Visio.Template
+
+include: ../../../../Neoslive.Visio/Resources/Private/TypoScript/Root.ts2
+
+include: NodeTypes/*
+include: Navigation/*
+include: Header/*
